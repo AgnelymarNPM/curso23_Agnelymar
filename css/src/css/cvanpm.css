@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+  margin: 0;
+  padding:0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+body {
+  background-color: rgb(15, 23, 42);
+}
+
+nav {
+  background-color: rgb(15, 23, 42);
+  color: white;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+nav div {
+  display: flex;
+  gap: 20px;
+}
+main {
+  background-color: rgb(15, 23, 42);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  gap: 50px;
+}
+
+
+header {
+  height: 80vh;
+  min-height: 80vh;
+  background-color: rgb(15, 23, 42);
+  /*   background-image: url quiero colocar una imagen de fondo*/;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 25px;
+  justify-items: center;
+  align-content: center;
+  gap: 20px;
+  }
+
+header > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+.enlace a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: all 1s ease;
+}
+
+.enlace a:hover {
+  font-size: 25px;
+  }
+
+.box-seccion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   gap: 20px; 
+  background: rgba(15, 23, 42, 0.6);/* color de fondo con opacidad el último parámetro 0 es transparente y 1 es opaco*/
+  padding: 50px; /* espacios alrededor */
+  border-radius: 50px; /* esquinas redondeadas */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 1); /* sombra  derecha, abajo, izquierda */
+}
+/*ANIMACIÓN*/
+.gradient-background {
+  background: linear-gradient(291deg,#111f3a,#223a6b,#60749b);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.box-seccion:hover {
+/*  background: conic-gradient(from 40deg at 30% 50%,#111f3a, #223a6b, #51699b);*/
+  background: linear-gradient(291deg,#51699b,#223a6b,#111f3a);
+  background-size: 180% 180%;
+  animation: gradient-animation 1s ease ;
+}
+
+header > div:hover {
+ /*  background: conic-gradient(from 40deg at 30% 50%,#111f3a, #223a6b, #51699b);*/
+  background: linear-gradient(291deg,#51699b,#223a6b,#111f3a);
+  background-size: auto; /*300% 300%;*/
+  animation: gradient-animation 1s ease ;
+  border-radius: 50%;
+}
