@@ -1,15 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
+/*
+  Medidas
+  px: pixeles (Absoluta)
+  %: porcentaje (relativa)
+  em: tamaño de la fuente del elemento padre
+  rem: tamaño de la fuente del elemento raíz
+  vh: porcentaje de la altura de la ventana
+  vw: porcentaje del ancho de la ventana
+  vmin: porcentaje del menor tamaño de la ventana
+  vmax: porcentaje del mayor tamaño de la ventana
+*/
+
+:root {
+  --color-principal: #0055ff;
+  --color-secundario: #2c5097;
+  --color-terciario: #ffffff;
+  --color-cuaternario: #000000;
+  --color-quintario: #ff9e02;
+  --titulares: 50px;
+  --subtitulares: 30px;
+  --texto: 20px;
+  --texto-pequeño: 15px;
+}
+
 * {
   margin: 0;
   padding:0;
   font-family: "Space Grotesk", sans-serif;
-
+  z-index: 10;
 }
 
 /*Barra de navegacion*/
 nav {
-  background-color: #0055ff;
+  background-color: var(--color-principal);
   color: white;
   font-size: 25px;
   display: flex;
@@ -24,7 +48,7 @@ nav {
   padding: 20px 0; 20 arriba y abajo, 0 derecha e izquierda
   padding: 20px 0 20px 0; 20 arriba, 0 derecha, 20 abajo, 0 izquierda
   */
-  padding: 20px;
+  padding: 10px 20px;
   /*Radio de los bordes, se lee arriba izquierda, arriba derecha
   abajo izquierda, abajo derecha*/
   /*border-radius: 0 0 15px 15px;*/
@@ -55,7 +79,7 @@ nav div {
 nav div a:visited, nav div a:link {
   color:white;
   text-decoration: none;
-  transition: all 1s ease;
+  transition: all 0.3s ease;
 }
 
 .enlace:hover {
@@ -77,7 +101,7 @@ nav div a:visited, nav div a:link {
 /*MAIN*/
 main {
   background-color: black;
-  background-image: linear-gradient(to right, #2c5097, #0055ff);
+  background-image: linear-gradient(to right, #2c5097, var(--color-principal));
   display: flex;
   flex-direction: column;
   padding: 40px 20px;
@@ -93,23 +117,76 @@ main {
 header {
   height: 80vh;
   min-height: 80vh;
-  background-color: aqua;
-   background-image: url("https://img.freepik.com/fotos-premium/color-abstracto-papel-plantillas_980736-10657.jpg");
+  /*background-color: aqua;*/
+  /* background-image: url("https://img.freepik.com/fotos-premium/color-abstracto-papel-plantillas_980736-10657.jpg");*/
   background-size: cover;
   /*opacity: 0.1; */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   /*Se puede usar repeat(2, 1fr) para crear dos columnas de igual tamaño*/
   /* 1fr es una unidad de medida que representa una fracción del espacio disponible*/
 /* se pueden utilizar %, px, em, rem, vh, vw*/
- border-radius: 25px;
+  border-radius: 25px;
   /*grid-template-rows: 200px;*/
   /*eje principal*/
   justify-items: center;
   /*eje secundario*/
   align-content: center;
   gap: 20px;
+  position: relative;
   }
+
+
+  
+/*
+  Los pseudoelementos permiten seleccionar partes de un elemento
+  ::before se activa antes de que el elemento sea renderizado
+  ::after se activa después de que el elemento sea renderizado
+  ::first-letter se activa en la primera letra del elemento
+  ::first-line se activa en la primera línea del elemento
+  ::selection se activa cuando el elemento es seleccionado
+  ::placeholder se activa cuando el elemento es un placeholder
+  ::marker se activa en el marcador de una lista
+*/
+
+/*
+  Position es una propiedad que permite manejar la posición de un elemento
+  static: posición normal
+  relative: posición relativa al elemento padre (Puedes moverlo)
+  absolute: posición absoluta al elemento padre (Puedes moverlo)
+  fixed: posición fija al viewport (pantalla) (Se queja fijo en la pantalla)
+  sticky: posición fija al scroll (Tiene su espacio en el html, pero se queda fijo al hacer scroll)
+*/
+
+header::before {
+  background-image: url("https://img.freepik.com/fotos-premium/color-abstracto-papel-plantillas_980736-10657.jpg");
+  background-size: cover;
+  background-position: center;
+  content: "";
+  position: absolute;
+  z-index: 5;
+  opacity: 0.15;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 25px;
+  border: 5px solid white;
+  box-shadow: 10px 5px 12px 5px rgba(0, 0, 0, 1);
+}
+
+
+.menu-responsive{
+  display: none;
+}
+
+header > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 
 header > div > div {
   display: flex;
@@ -117,10 +194,52 @@ header > div > div {
   gap: 5px;
 }
 
+h1 {
+  font-size: var(--titulares);
+  color: var(--color-quintario);
+  text-align: center;
+  text-shadow: 2px 2px 5px black;
+}
+
+h2 {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 5px black;
+}
+
+.info {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 5px black;
+  font-weight: 300;
+}
+
+button {
+  background-color: var(--color-quintario);
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: var(--color-quintario);
+  box-shadow: 0px 0px 10px black;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+  cursor: default;
+}
 
 /*ANIMACIÓN*/
 .gradient-background {
-  background: linear-gradient(291deg,#2c5097,#0055ff,#ffffff);
+  background: linear-gradient(291deg, #2c5097, var(--color-principal), #ffffff);
   background-size: 180% 180%;
   animation: gradient-animation 18s ease infinite;
 }
@@ -137,3 +256,41 @@ header > div > div {
   }
 }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {
+  p {
+    color: rgb(97, 190, 20)
+  }
+} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menu-movil{
+    display: none;
+  }
+  .menu-responsive{
+    display: flex;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {
+  p {
+    color: green
+  }
+} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {
+  p {
+    color: yellow
+  }
+} */
+
+/*
+Opción 1: Realizar una copia de la página principal de Youtube
+Opción 2: Realziar una copia de la página principal de farmatodo
+*/

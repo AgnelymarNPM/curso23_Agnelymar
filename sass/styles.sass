@@ -1,0 +1,24 @@
+/* Variables
+$color-principal: blue
+$color-texto: white
+/* Mixins
+  Los mixins son funciones que se pueden reutilizar en el código
+  En palabras más simples, son fragmentos de código que se pueden reutilizar en
+  diferentes partes del proyecto
+@mixin fila
+  display: flex
+  justify-content: center
+  align-items: center
+
+*
+  padding: 0
+  margin: 0
+
+nav
+  background-color: $color-principal
+  display: flex
+  justify-content: space-between
+  align-items: center
+  div
+    color: $color-texto
+    @include fila
